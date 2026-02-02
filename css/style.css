@@ -864,9 +864,9 @@ footer {
         padding: var(--spacing-lg);
     }
 
-    /* Sustainability Grid - 2 Columns on Mobile */
+    /* Sustainability Grid - Single Column on Mobile */
     .sustainability-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
 
