@@ -124,7 +124,7 @@ header .container {
     position: relative;
     background-color: var(--dark-gray);
     /* Fallback */
-    min-height: 80vh;
+    min-height: 90vh;
     /* Ensure adequate height for form and centered content */
     display: flex;
     align-items: center;
@@ -208,7 +208,8 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%); */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
     z-index: 1;
     pointer-events: none;
     /* Let clicks pass through overlay just in case */
@@ -259,7 +260,7 @@ header .container {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 24px;
+    padding: 20px;
     border-radius: 12px;
     width: 350px;
     max-width: 90%;
@@ -280,17 +281,17 @@ header .container {
 }
 
 .hero-form h3 {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     color: var(--primary-color);
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .hero-form .form-group {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .hero-form label {
@@ -305,10 +306,10 @@ header .container {
 
 .hero-form input {
     width: 100%;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
     font-family: var(--font-family);
     background: rgba(255, 255, 255, 0.12);
     color: #fff;
@@ -386,7 +387,7 @@ input[type="number"] {
         background: rgba(0, 0, 0, 0.6);
         flex-direction: column;
         text-align: center;
-        overflow-y: auto;
+        /* overflow-y: auto; */
         align-items: center;
     }
 
@@ -416,7 +417,12 @@ input[type="number"] {
         margin-bottom: 1rem;
     }
 
+    /* form disapper on mobile */
     .hero-form-container {
+        display: none;
+    }
+
+    /* .hero-form-container {
         width: 100%;
         max-width: 360px;
         margin-bottom: 40px;
@@ -434,7 +440,7 @@ input[type="number"] {
 
     .hero-form label {
         text-align: left;
-    }
+    } */
 }
 
 .hero-content {
@@ -490,10 +496,11 @@ input[type="number"] {
 }
 
 .logo-track {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacing-md) var(--spacing-lg);
     align-items: center;
-    gap: var(--spacing-lg);
+    justify-items: center;
     opacity: 0.8;
 }
 
@@ -504,15 +511,14 @@ input[type="number"] {
 }
 
 .partner-logo {
-    max-height: 35px;
-    max-width: 100px;
+    max-height: 45px;
+    max-width: 100%;
     width: auto;
     object-fit: contain;
-    flex-shrink: 0;
 }
 
-/* Hide duplicate logos on desktop (for marquee duplicates) */
-.partner-logo:nth-child(n+9) {
+/* Hide duplicate logos on desktop (for marquee duplicates - show only first 12) */
+.partner-logo:nth-child(n+13) {
     display: none;
 }
 
@@ -525,6 +531,36 @@ input[type="number"] {
     100% {
         transform: translateX(-50%);
     }
+}
+
+/* Value Stat Box with Counter */
+.value-stat-box {
+    background: var(--white);
+    padding: 48px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    text-align: center;
+}
+
+.value-stat-box p {
+    margin: 0;
+    padding: 48px;
+    font-size: 1.35rem;
+    border-radius: 4px;
+    border-top: 4px solid #FFCC00;
+    color: var(--text-color);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.value-stat-box strong {
+    color: #FFCC00;
+    font-size: 5rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1;
 }
 
 /* Benefits cards Section */
@@ -619,9 +655,6 @@ input[type="number"] {
     margin: 0 auto;
 }
 
-.value-stat-box strong {
-    color: var(--text-color);
-}
 
 .value-description {
     font-size: 1rem;
@@ -955,8 +988,7 @@ input[type="number"] {
     }
 }
 
-/* Sustainability & Testimonials */
-.sustainability,
+/* Testimonials */
 .testimonials {
     background-color: var(--white);
 }
@@ -1022,69 +1054,6 @@ input[type="number"] {
     line-height: 1.7;
 }
 
-/* Sustainability Enhanced Styles */
-.sustainability-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--spacing-lg);
-}
-
-.sustainability-subtitle {
-    font-size: 1.1rem;
-    color: var(--dark-gray);
-    margin-top: var(--spacing-md);
-}
-
-.sustainability-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
-}
-
-.sustainability-card {
-    background: var(--bg-color);
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--light-gray);
-}
-
-.sustainability-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary-color);
-}
-
-.sustainability-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto var(--spacing-md);
-    /* background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); */
-    background: linear-gradient(135deg, var(--primary-color) 0%, #FFA500 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sustainability-icon svg {
-    width: 24px;
-    height: 24px;
-    /* color: white; */
-    color: black;
-}
-
-.sustainability-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-sm);
-}
-
-.sustainability-card p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
 
 /* Testimonials Enhanced Styles */
 .testimonials {
@@ -1096,9 +1065,10 @@ input[type="number"] {
     margin-bottom: var(--spacing-lg);
 }
 
+/* columns testimonials */
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
 }
 
@@ -1163,6 +1133,10 @@ input[type="number"] {
     font-weight: 700;
     color: var(--text-color);
     flex-shrink: 0;
+}
+
+img.author-avatar {
+    object-fit: cover;
 }
 
 .author-info h4 {
@@ -1448,9 +1422,11 @@ footer {
 
     /* Logo marquee animation on mobile */
     .logo-track {
+        display: flex;
+        flex-wrap: nowrap;
         justify-content: flex-start;
         width: max-content;
-        animation: marquee 20s linear infinite;
+        animation: marquee 30s linear infinite;
     }
 
     .logo-marquee:hover .logo-track {
@@ -1458,13 +1434,13 @@ footer {
     }
 
     /* Show duplicate logos on mobile for seamless loop */
-    .partner-logo:nth-child(n+9) {
+    .partner-logo:nth-child(n+13) {
         display: block;
     }
 
     .partner-logo {
-        max-height: 30px;
-        max-width: 80px;
+        max-height: 35px;
+        max-width: 90px;
     }
 
     /* Product Range - Single Column on Mobile */
@@ -1491,16 +1467,6 @@ footer {
 
     .benefit-card {
         padding: var(--spacing-lg);
-    }
-
-    /* Sustainability Grid - Single Column on Mobile */
-    .sustainability-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-
-    .sustainability-card {
-        padding: var(--spacing-md);
     }
 
     /* Testimonials - Single Column on Mobile */
@@ -1577,12 +1543,6 @@ footer {
         grid-column: 1 / -1;
         max-width: 50%;
         margin: 0 auto;
-    }
-
-    /* Sustainability Grid - 2 Columns on Tablet */
-    .sustainability-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
     }
 
     /* Testimonials - 2 Columns on Tablet */
@@ -1726,6 +1686,14 @@ footer {
     flex-direction: column;
     gap: 12px;
     z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.floating-buttons.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .fab {
@@ -1757,7 +1725,7 @@ footer {
 }
 
 .fab-enquiry {
-    background-color: #DC3545;
+    background-color: var(--primary-color);
     color: white;
 }
 

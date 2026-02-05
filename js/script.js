@@ -52,45 +52,70 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Corporate Offices',
             images: [
                 'assets/Corporate-Offices.jpg',
-                'assets/gallery/corporate-1.jpg',
-                'assets/gallery/corporate-2.jpg',
-                'assets/gallery/corporate-3.jpg'
+                'assets/gallery/offices/office1.webp',
+                'assets/gallery/offices/office2.webp',
+                'assets/gallery/offices/office3.webp',
+                'assets/gallery/offices/office4.webp',
+                'assets/gallery/offices/office5.webp',
+                'assets/gallery/offices/office6.webp',
+                'assets/gallery/offices/office7.webp',
+                'assets/gallery/offices/office8.webp',
+                'assets/gallery/offices/office9.webp',
+                'assets/gallery/offices/office10.webp',
+                'assets/gallery/offices/office11.webp',
+                'assets/gallery/offices/office12.webp',
+                'assets/gallery/offices/office13.webp',
+                'assets/gallery/offices/office14.jpg',
+                'assets/gallery/offices/office15.webp',
             ]
         },
         education: {
             title: 'Educational Institutions',
             images: [
                 'assets/Educational-Institutions.jpg',
-                'assets/gallery/education-1.jpg',
-                'assets/gallery/education-2.jpg',
-                'assets/gallery/education-3.jpg'
+                'assets/gallery/education/edu1.jpg',
+                'assets/gallery/education/edu2.webp',
+                'assets/gallery/education/edu3.webp',
+                'assets/gallery/education/school1.webp',
+                'assets/gallery/education/school2.webp',
+                'assets/gallery/education/school3.webp',
+                'assets/gallery/education/school4.webp'
             ]
         },
         healthcare: {
             title: 'Healthcare Facilities',
             images: [
                 'assets/Healthcare-Facilities.jpg',
-                'assets/gallery/healthcare-1.jpg',
-                'assets/gallery/healthcare-2.jpg',
-                'assets/gallery/healthcare-3.jpg'
+                'assets/gallery/healthcare/healthcare1.webp',
+                'assets/gallery/healthcare/healthcare2.webp',
+                'assets/gallery/healthcare/healthcare3.webp'
             ]
         },
         commercial: {
             title: 'Commercial Buildings',
             images: [
                 'assets/Commercial-Buildings.jpg',
-                'assets/gallery/commercial-1.jpg',
-                'assets/gallery/commercial-2.jpg',
-                'assets/gallery/commercial-3.jpg'
+                'assets/gallery/Commercial/commercial1.webp',
+                'assets/gallery/Commercial/commercial2.webp',
+                'assets/gallery/Commercial/commercial3.webp',
+                'assets/gallery/Commercial/commercial4.webp',
+                'assets/gallery/Commercial/hotel1.webp',
+                'assets/gallery/Commercial/gym1.webp',
+                'assets/gallery/Commercial/restaurant2.webp',
+                'assets/gallery/Commercial/restaurant3.webp',
+                'assets/gallery/Commercial/restaurant4.webp',
             ]
         },
         meeting: {
             title: 'Meeting Rooms',
             images: [
                 'assets/Meeting-Rooms.jpg',
-                'assets/gallery/meeting-1.jpg',
-                'assets/gallery/meeting-2.jpg',
-                'assets/gallery/meeting-3.jpg'
+                'assets/gallery/MeetingRoom/meeting1.webp',
+                'assets/gallery/MeetingRoom/meeting2.jpg',
+                'assets/gallery/MeetingRoom/meeting3.webp',
+                'assets/gallery/MeetingRoom/meeting4.webp',
+                'assets/gallery/MeetingRoom/meeting5.webp',
+                'assets/gallery/MeetingRoom/meeting6.jpg',
             ]
         }
     };
@@ -197,12 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero Slider Functionality
     const heroBanners = [
         {
-            image: 'assets/banner1.jpg',
+            image: 'assets/banner/banner-1.jpg',
             alignment: 'split',
             content: `
-                <div class="hero-content" style="flex: 1; max-width: 600px; margin-right: 40px;">
-                    <h1>Sound-Absorbing Ceilings for Better Living</h1>
-                    <p>Ecophon develops, manufactures and markets acoustic products and systems that contribute to a good working environment, wellbeing and performance.</p>
+               <div class="hero-content" >
+                    <h1>Modular Ceilings Designed for Acoustic Comfort</h1>
+                    <p>A comprehensive range of modular ceiling systems that deliver reliable acoustic performance and clean, consistent design across commercial interiors.</p>
+                    <ul class="benefits-list">
+                        <li>Sound Absorption Class A</li>
+                        <li>Clean modern aesthetics</li>
+                        <li>Easy installation & maintenance</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Product Details</a>
                 </div>
                 <div class="hero-form-container">
                     <form id="hero-enquiry-form" class="hero-form">
@@ -229,31 +260,19 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         },
         {
-            image: 'assets/banner2.jpg',
+            image: 'assets/banner/banner-2.webp',
             alignment: 'left',
-            content: `
-                <div class="hero-content">
-                    <h1>Modular Ceilings Designed for Acoustic Comfort</h1>
-                    <p>A comprehensive range of modular ceiling systems that deliver reliable acoustic performance and clean, consistent design across commercial interiors.</p>
-                    <ul class="benefits-list">
-                        <li>Sound Absorption Class A</li>
-                        <li>Clean modern aesthetics</li>
-                        <li>Easy installation & maintenance</li>
-                    </ul>
-                    <a href="#contact" class="btn">Get Product Details</a>
-                </div>
-            `
+            content: ``
         },
         {
-            image: 'assets/banner3.jpg',
+            image: 'assets/banner/banner-3.webp',
             alignment: 'left',
-            content: `
-                <div class="hero-content">
-                    <h1>Transform Your Space with Ecophon</h1>
-                    <p>Create better sound environments for schools, offices, and healthcare facilities with our sustainable acoustic solutions.</p>
-                    <a href="#solutions" class="btn">Explore Solutions</a>
-                </div>
-            `
+            content: ``
+        },
+        {
+            image: 'assets/banner/banner-4.webp',
+            alignment: 'left',
+            content: ``
         }
     ];
 
@@ -531,6 +550,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
+        });
+    }
+
+    // Floating Buttons Visibility on Scroll
+    const floatingButtons = document.querySelector('.floating-buttons');
+    const heroSection = document.querySelector('.hero');
+
+    if (floatingButtons) {
+        const toggleFloatingButtons = () => {
+            // Show buttons only after scrolling past the hero section
+            const threshold = heroSection ? heroSection.offsetHeight : 500;
+            if (window.scrollY > threshold) {
+                floatingButtons.classList.add('visible');
+            } else {
+                floatingButtons.classList.remove('visible');
+            }
+        };
+
+        window.addEventListener('scroll', toggleFloatingButtons);
+        toggleFloatingButtons(); // Initial check
+    }
+
+    // Number Counter Animation
+    const counters = document.querySelectorAll('.counter');
+
+    if (counters.length > 0) {
+        const observerOptions = {
+            root: null,
+            threshold: 0.5
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    // Ensure we have a valid target
+                    if (isNaN(target)) return;
+
+                    const duration = 2000; // Animation duration in ms
+                    const increment = target / (duration / 16); // 60fps roughly
+
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    requestAnimationFrame(updateCounter);
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
         });
     }
 });
