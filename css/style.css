@@ -209,13 +209,12 @@ header .container {
     width: 100%;
     height: 100%;
     /* background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%); */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
     z-index: 1;
     pointer-events: none;
-    /* Let clicks pass through overlay just in case */
 }
 
-this overlay efffect on the first slide */ .hero-slide:first-child::after {
+/* this overlay efffect on the first slide */
+.hero-slide:first-child::after {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
