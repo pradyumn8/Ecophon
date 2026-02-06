@@ -387,6 +387,7 @@ input[type="number"] {
         background: rgba(0, 0, 0, 0.6);
         flex-direction: column;
         text-align: center;
+        /* hide till form will not there */
         /* overflow-y: auto; */
         align-items: center;
     }

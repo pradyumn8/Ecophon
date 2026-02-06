@@ -51,44 +51,28 @@ document.addEventListener('DOMContentLoaded', () => {
         corporate: {
             title: 'Corporate Offices',
             images: [
-                'assets/Corporate-Offices.jpg',
-                'assets/gallery/offices/office1.webp',
-                'assets/gallery/offices/office2.webp',
-                'assets/gallery/offices/office3.webp',
-                'assets/gallery/offices/office4.webp',
-                'assets/gallery/offices/office5.webp',
-                'assets/gallery/offices/office6.webp',
-                'assets/gallery/offices/office7.webp',
-                'assets/gallery/offices/office8.webp',
-                'assets/gallery/offices/office9.webp',
-                'assets/gallery/offices/office10.webp',
-                'assets/gallery/offices/office11.webp',
-                'assets/gallery/offices/office12.webp',
-                'assets/gallery/offices/office13.webp',
-                'assets/gallery/offices/office14.jpg',
-                'assets/gallery/offices/office15.webp',
+                'assets/gallery/corporate/corporate-1.webp',
+                'assets/gallery/corporate/corporate-2.webp',
+                'assets/gallery/corporate/corporate-3.webp',
+                'assets/gallery/corporate/corporate-4.webp',
             ]
         },
         education: {
             title: 'Educational Institutions',
             images: [
-                'assets/Educational-Institutions.jpg',
-                'assets/gallery/education/edu1.jpg',
-                'assets/gallery/education/edu2.webp',
-                'assets/gallery/education/edu3.webp',
-                'assets/gallery/education/school1.webp',
-                'assets/gallery/education/school2.webp',
-                'assets/gallery/education/school3.webp',
-                'assets/gallery/education/school4.webp'
+                'assets/gallery/education/education-1.jpg',
+                'assets/gallery/education/education-2.webp',
+                'assets/gallery/education/education-3.webp',
+                'assets/gallery/education/education-4.webp',
             ]
         },
         healthcare: {
             title: 'Healthcare Facilities',
             images: [
-                'assets/Healthcare-Facilities.jpg',
-                'assets/gallery/healthcare/healthcare1.webp',
-                'assets/gallery/healthcare/healthcare2.webp',
-                'assets/gallery/healthcare/healthcare3.webp'
+                'assets/gallery/healthcare/healthcare-1.webp',
+                'assets/gallery/healthcare/healthcare-2.webp',
+                'assets/gallery/healthcare/healthcare-3.webp',
+                'assets/gallery/healthcare/healthcare-4.webp'
             ]
         },
         commercial: {
@@ -222,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero Slider Functionality
     const heroBanners = [
         {
-            image: 'assets/banner/banner-1.jpg',
+            image: 'assets/banner/banner-1.webp',
             alignment: 'split',
             content: `
                <div class="hero-content" >
@@ -266,11 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/banner/banner-3.webp',
-            alignment: 'left',
-            content: ``
-        },
-        {
-            image: 'assets/banner/banner-4.webp',
             alignment: 'left',
             content: ``
         }
