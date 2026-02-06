@@ -208,11 +208,15 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%); */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%); */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
     z-index: 1;
     pointer-events: none;
     /* Let clicks pass through overlay just in case */
+}
+
+this overlay efffect on the first slide */ .hero-slide:first-child::after {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .hero-slide img {
@@ -256,10 +260,11 @@ header .container {
 }
 
 .hero-form-container {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--white);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255);
+    /* border: 1px solid rgba(255, 255, 255, 0.25); */
     padding: 20px;
     border-radius: 12px;
     width: 350px;
@@ -282,7 +287,7 @@ header .container {
 
 .hero-form h3 {
     margin-bottom: 14px;
-    color: var(--primary-color);
+    color: var(--text-color);
     text-align: center;
     font-size: 1rem;
     font-weight: 600;
@@ -298,7 +303,7 @@ header .container {
     display: block;
     font-size: 0.85rem;
     margin-bottom: 6px;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-color);
     font-weight: 500;
     letter-spacing: 0.3px;
     text-transform: uppercase;
@@ -307,23 +312,23 @@ header .container {
 .hero-form input {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 0.9rem;
     font-family: var(--font-family);
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
+    background: #f9f9f9;
+    color: var(--text-color);
     transition: all 0.3s ease;
 }
 
 .hero-form input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: #888;
 }
 
 .hero-form input:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.18);
+    background: #fff;
     box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.15);
 }
 
@@ -720,7 +725,8 @@ input[type="number"] {
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
+    /* changed gap from lg to md */
+    gap: var(--spacing-md);
 }
 
 .product-card {
@@ -736,6 +742,8 @@ input[type="number"] {
 
 .product-card h3 {
     text-align: center;
+    /* font-size: 1rem;
+    font-weight: 500; */
 }
 
 .product-card p {
