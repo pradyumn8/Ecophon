@@ -284,8 +284,8 @@ header .container {
     margin-bottom: 14px;
     color: var(--primary-color);
     text-align: center;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -734,8 +734,13 @@ input[type="number"] {
     height: 100%;
 }
 
+.product-card h3 {
+    text-align: center;
+}
+
 .product-card p {
     flex-grow: 1;
+    text-align: center;
 }
 
 .product-card:hover {
@@ -986,6 +991,11 @@ input[type="number"] {
     .gallery-nav svg {
         width: 20px;
         height: 20px;
+    }
+
+    .btn-download {
+        justify-content: center;
+        width: 100%;
     }
 }
 

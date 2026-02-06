@@ -164,10 +164,11 @@
                     <div class="product-image">
                         <img src="assets/product-image/product_img1.webp" alt="Ecophon Advantage">
                     </div>
-                    <h3>Ecophon Advantage™</h3>
-                    <p>Good acoustic performance and mechanical strength.</p>
+                    <h3>Ecophon Advantage™ E</h3>
+                    <p>A cost-effective modular ceiling tile with Class A sound absorption and a refined tegular edge
+                        design for clean suspended ceilings.</p>
                     <button class="btn-download" data-brochure="assets/brochure/Advantage E-Systempage.pdf"
-                        data-product="Ecophon Advantage™">
+                        data-product="Ecophon Advantage™ E">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                         </svg>
@@ -178,10 +179,10 @@
                     <div class="product-image">
                         <img src="assets/product-image/product_img2.webp" alt="Ecophon Focus">
                     </div>
-                    <h3>Ecophon Focus™</h3>
-                    <p>Excellent acoustics and a wide range of design opportunities.</p>
-                    <button class="btn-download" data-brochure="assets/brochure/Focus Ds-Systempage.pdf"
-                        data-product="Ecophon Focus™">
+                    <h3>Ecophon Opta™ E</h3>
+                    <p>A practical modular ceiling delivering reliable acoustic comfort.</p>
+                    <button class="btn-download" data-brochure="assets/brochure/CM_Opta_brochure_2025_12_05.pdf"
+                        data-product="Ecophon Opta™ E">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                         </svg>
@@ -192,10 +193,11 @@
                     <div class="product-image">
                         <img src="assets/product-image/product_img3.png" alt="Ecophon Master">
                     </div>
-                    <h3>Ecophon Master™</h3>
-                    <p>Superior acoustic absorption for demanding environments.</p>
-                    <button class="btn-download" data-brochure="assets/brochure/Master A-Systempage.pdf"
-                        data-product="Ecophon Master™">
+                    <h3>Ecophon Sombra™</h3>
+                    <p>A matte black acoustic ceiling system with Class A sound absorption, ideal for creating visually
+                        striking ceilings that enhance acoustic comfort.</p>
+                    <button class="btn-download" data-brochure="assets/brochure/Sombra A-Systempage.pdf"
+                        data-product="Ecophon Sombra™">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                         </svg>
@@ -206,10 +208,10 @@
                     <div class="product-image">
                         <img src="assets/product-image/product_img4.webp" alt="Ecophon Hygiene">
                     </div>
-                    <h3>Ecophon Hygiene™</h3>
+                    <h3>Ecophon Hygiene Clinic™ E</h3>
                     <p>Advanced sound-absorbing solutions for hygienic environments.</p>
                     <button class="btn-download" data-brochure="assets/brochure/Hygiene Clinic E-Systempage.pdf"
-                        data-product="Ecophon Hygiene™">
+                        data-product="Ecophon Hygiene Clinic™ E">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                         </svg>
@@ -240,16 +242,16 @@
                     <div class="overlay"></div>
                     <span>Healthcare Facilities</span>
                 </div>
-                <div class="use-case-card" data-gallery="commercial"
-                    style="background-image: url('assets/gallery/commercial/commercial-1.webp'); background-size: cover; background-position: center;">
+                <div class="use-case-card" data-gallery="infrastructure-project"
+                    style="background-image: url('assets/gallery/infrastructure-project/infrastructure-project-1.webp'); background-size: cover; background-position: center;">
                     <div class="overlay"></div>
-                    <span>Commercial Buildings</span>
+                    <span>Infrastructure Projects</span>
                 </div>
-                <div class="use-case-card" data-gallery="meeting"
+                <!-- <div class="use-case-card" data-gallery="meeting"
                     style="background-image: url('assets/Meeting-Rooms.jpg'); background-size: cover; background-position: center;">
                     <div class="overlay"></div>
                     <span>Meeting Rooms</span>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -411,7 +413,7 @@
                     <label for="mobile">Mobile Number</label>
                     <input type="number" id="mobile" name="mobile" required>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Enquiry</button>
+                <button type="submit" class="btn" style="width: 100%;">Talk to an Expert</button>
             </form>
         </div>
     </section>
@@ -526,51 +528,14 @@
                     <label for="fab-mobile">Mobile Number</label>
                     <input type="number" id="fab-mobile" name="mobile" required>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Enquiry</button>
+                <button type="submit" class="btn" style="width: 100%;">Talk to an Expert</button>
             </form>
         </div>
     </div>
 
 
     <script src="js/script.js"></script>
-    <script>
-        const form = document.getElementById('enquiry-form');
-        const submitBtn = form.querySelector('button[type="submit"]');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-            formData.append("access_key", "bb7fd0bd-1325-4bd0-a248-a475110975b9");
-
-            const originalText = submitBtn.textContent;
-
-            submitBtn.textContent = "Sending...";
-            submitBtn.disabled = true;
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert("Success! Your enquiry has been sent.");
-                    form.reset();
-                } else {
-                    alert("Error: " + data.message);
-                }
-
-            } catch (error) {
-                alert("Something went wrong. Please try again.");
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    </script>
 </body>
 
 </html>

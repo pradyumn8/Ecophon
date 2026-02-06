@@ -34,15 +34,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form Submission Handler (Mock) - Bottom Contact Form
-    const form = document.querySelector('.lead-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
+    // Form Submission Handler - Bottom Contact Form
+    const leadForm = document.getElementById('enquiry-form');
+    if (leadForm) {
+        leadForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            console.log('Form Submit:', data);
-            alert('Thank you for your interest! We will contact you shortly.');
-            form.reset();
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            const formData = new FormData(leadForm);
+            formData.append("access_key", "bb7fd0bd-1325-4bd0-a248-a475110975b9");
+
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Success! Your enquiry has been sent.");
+                    leadForm.reset();
+                } else {
+                    alert("Error: " + data.message);
+                }
+            } catch (error) {
+                alert("Something went wrong. Please try again.");
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 
@@ -75,31 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/gallery/healthcare/healthcare-4.webp'
             ]
         },
-        commercial: {
-            title: 'Commercial Buildings',
+        'infrastructure-project': {
+            title: 'Infrastructure Projects',
             images: [
-                'assets/Commercial-Buildings.jpg',
-                'assets/gallery/Commercial/commercial1.webp',
-                'assets/gallery/Commercial/commercial2.webp',
-                'assets/gallery/Commercial/commercial3.webp',
-                'assets/gallery/Commercial/commercial4.webp',
-                'assets/gallery/Commercial/hotel1.webp',
-                'assets/gallery/Commercial/gym1.webp',
-                'assets/gallery/Commercial/restaurant2.webp',
-                'assets/gallery/Commercial/restaurant3.webp',
-                'assets/gallery/Commercial/restaurant4.webp',
-            ]
-        },
-        meeting: {
-            title: 'Meeting Rooms',
-            images: [
-                'assets/Meeting-Rooms.jpg',
-                'assets/gallery/MeetingRoom/meeting1.webp',
-                'assets/gallery/MeetingRoom/meeting2.jpg',
-                'assets/gallery/MeetingRoom/meeting3.webp',
-                'assets/gallery/MeetingRoom/meeting4.webp',
-                'assets/gallery/MeetingRoom/meeting5.webp',
-                'assets/gallery/MeetingRoom/meeting6.jpg',
+                'assets/gallery/infrastructure-project/infrastructure-project-1.webp',
+                'assets/gallery/infrastructure-project/infrastructure-project-2.webp',
+                'assets/gallery/infrastructure-project/infrastructure-project-3.webp',
+                'assets/gallery/infrastructure-project/infrastructure-project-4.webp',
             ]
         }
     };
@@ -203,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Hero Slider Functionality
-    // Hero Slider Functionality
     const heroBanners = [
         {
             image: 'assets/banner/banner-1.webp',
@@ -211,17 +217,17 @@ document.addEventListener('DOMContentLoaded', () => {
             content: `
                <div class="hero-content" >
                     <h1>Modular Ceilings Designed for Acoustic Comfort</h1>
-                    <p>A comprehensive range of modular ceiling systems that deliver reliable acoustic performance and clean, consistent design across commercial interiors.</p>
+                    <p>A comprehensive range of modular ceiling systems that don’t just look good, they improve acoustic comfort, helping create quieter, calmer spaces.</p>
                     <ul class="benefits-list">
                         <li>Sound Absorption Class A</li>
                         <li>Clean modern aesthetics</li>
                         <li>Easy installation & maintenance</li>
                     </ul>
-                    <a href="#contact" class="btn">Get Product Details</a>
+                    <a href="#contact" class="btn">Talk to an Expert</a>
                 </div>
                 <div class="hero-form-container">
                     <form id="hero-enquiry-form" class="hero-form">
-                        <h3>Get a Quote</h3>
+                        <h3>Acoustic guidance for ceilings and wall solutions.</h3>
                         <div class="form-group">
                             <label for="hero-name">Name</label>
                             <input type="text" id="hero-name" name="name" required>
@@ -238,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <label for="hero-mobile">Mobile Number</label>
                             <input type="number" id="hero-mobile" name="mobile" required>
                         </div>
-                        <button type="submit" class="btn warning-btn" style="width: 100%;">Submit Enquiry</button>
+                        <button type="submit" class="btn warning-btn" style="width: 100%;">Talk to an Expert</button>
                     </form>
                 </div>
             `
