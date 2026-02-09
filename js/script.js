@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero Slider Functionality
     const heroBanners = [
         {
-            image: 'assets/banner/banner-1.webp',
+            image: 'assets/banner/banner-1.jpeg',
             alignment: 'split',
             content: `
                <div class="hero-content" >
@@ -250,12 +250,22 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         },
         {
-            image: 'assets/banner/banner-2.webp',
+            image: 'assets/banner/banner-2.jpeg',
             alignment: 'left',
             content: ``
         },
         {
-            image: 'assets/banner/banner-3.webp',
+            image: 'assets/banner/banner-3.jpeg',
+            alignment: 'left',
+            content: ``
+        },
+        {
+            image: 'assets/banner/banner-4.jpeg',
+            alignment: 'left',
+            content: ``
+        },
+        {
+            image: 'assets/banner/banner-5.jpeg',
             alignment: 'left',
             content: ``
         }
