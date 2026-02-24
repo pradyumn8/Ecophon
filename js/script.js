@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                <div class="hero-content" >
                     <h1>Modular Ceilings Designed for Acoustic Comfort</h1>
                     <p>A comprehensive range of modular ceiling systems that don’t just look good, they improve acoustic comfort, helping create quieter, calmer spaces.</p>
-                                 <div class="hero-highlight-card">
+                       <div class="hero-highlight-card">
                             <span class="highlight-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
                             <span class="highlight-text" style="font-size: 1.4rem;">Easy installation & maintenance</span>
                         </div>
