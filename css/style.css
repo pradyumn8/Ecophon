@@ -143,8 +143,6 @@ header .container {
     z-index: 1;
 }
 
-
-
 .hero-nav {
     position: absolute;
     top: 50%;
@@ -178,6 +176,12 @@ header .container {
 
 .hero-next {
     right: 20px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Hero overlay moved to .hero-slide::after to ensure correct stacking context */
@@ -385,21 +389,66 @@ input[type="number"] {
 
 /* Responsive adjustments for Hero Form - Mobile */
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        overflow: visible;
+        display: block;
+    }
+
+    .hero-slider {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-slide {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        display: none;
+        overflow: hidden;
+    }
+
+    .hero-slide.active {
+        display: block;
+    }
+
+    /* All slide images: fill full width and height */
+    .hero-slide img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Slides WITH content: image behind, content drives height */
+    .hero-slide:has(.hero-slide-content) {
+        height: auto;
+    }
+
+    .hero-slide:has(.hero-slide-content) img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
     .hero-slide-content {
-        justify-content: center;
-        padding: 80px 20px 60px;
+        position: relative;
+        width: 100%;
+        height: auto;
+        justify-content: flex-start;
+        padding: 80px 20px 40px;
         background: rgba(0, 0, 0, 0.6);
         flex-direction: column;
         text-align: center;
-        /* hide till form will not there */
-        /* overflow-y: auto; */
         align-items: center;
     }
 
     .hero-slide-content.align-split {
         justify-content: flex-start;
-        padding-top: 100px;
-        gap: 20px;
+        padding-top: 80px;
+        gap: 16px;
     }
 
     .hero-content {
@@ -422,30 +471,48 @@ input[type="number"] {
         margin-bottom: 1rem;
     }
 
-    /* form disapper on mobile */
+    /* form disappear on mobile */
     .hero-form-container {
         display: none;
     }
 
-    /* .hero-form-container {
-        width: 100%;
-        max-width: 360px;
-        margin-bottom: 40px;
-        padding: 20px;
+    .hero-nav {
+        display: none;
     }
 
-    .hero-form h3 {
-        font-size: 1.25rem;
-        margin-bottom: 16px;
+    /* Show hero dots on mobile */
+    .hero-dots {
+        display: flex;
     }
+}
 
-    .hero-form .form-group {
-        margin-bottom: 12px;
-    }
+/* Hero Dots - hidden on desktop */
+.hero-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
 
-    .hero-form label {
-        text-align: left;
-    } */
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.3);
 }
 
 .hero-content {
@@ -480,6 +547,59 @@ input[type="number"] {
     color: var(--primary-color);
     font-weight: bold;
 }
+
+/* Hero Highlight Cards */
+.hero-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-highlight-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px 22px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    width: fit-content;
+}
+
+.hero-highlight-card:hover {
+    transform: translateX(6px);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.highlight-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+}
+
+.highlight-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+}
+
 
 /* Social Proof */
 .social-proof {
@@ -622,6 +742,9 @@ input[type="number"] {
     color: #666;
     line-height: 1.7;
     font-size: 0.95rem;
+}
+.main-keywords{
+    font-weight: bold;
 }
 
 /* Value Prop */

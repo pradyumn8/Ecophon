@@ -218,12 +218,20 @@ document.addEventListener('DOMContentLoaded', () => {
                <div class="hero-content" >
                     <h1>Modular Ceilings Designed for Acoustic Comfort</h1>
                     <p>A comprehensive range of modular ceiling systems that don’t just look good, they improve acoustic comfort, helping create quieter, calmer spaces.</p>
-                    <ul class="benefits-list">
-                        <li>Sound Absorption Class A</li>
-                        <li>Clean modern aesthetics</li>
-                        <li>Easy installation & maintenance</li>
-                    </ul>
-                    <a href="#contact" class="btn">Talk to an Expert</a>
+                                 <div class="hero-highlight-card">
+                            <span class="highlight-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span class="highlight-text" style="font-size: 1.4rem;">Easy installation & maintenance</span>
+                        </div>
+                        <div class="hero-highlight-card">
+                            <span class="highlight-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span class="highlight-text" style="font-size: 1.4rem;">Sound Absorption Class A</span>
+                        </div>
+                        <div class="hero-highlight-card">
+                            <span class="highlight-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span class="highlight-text" style="font-size: 1.4rem;">Clean modern aesthetics</span>
+                        </div>
+
+                    <a href="#contact" class="btn" style="display: none;">Submit</a>
                 </div>
                 <div class="hero-form-container">
                     <form id="hero-enquiry-form" class="hero-form">
@@ -244,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <label for="hero-mobile">Mobile Number</label>
                             <input type="number" id="hero-mobile" name="mobile" required>
                         </div>
-                        <button type="submit" class="btn warning-btn" style="width: 100%;">Talk to an Expert</button>
+                        <button type="submit" class="btn warning-btn" style="width: 100%;">Submit</button>
                     </form>
                 </div>
             `
@@ -345,6 +353,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Mobile dots
+        const dotsBox = document.getElementById('hero-dots');
+        heroBanners.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => showHeroSlide(i));
+            dotsBox.appendChild(dot);
+        });
+        const allDots = dotsBox.querySelectorAll('.hero-dot');
+
         function showHeroSlide(index) {
             heroSlides.forEach(slide => slide.classList.remove('active'));
 
@@ -353,6 +371,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentHeroSlide >= heroSlides.length) currentHeroSlide = 0;
 
             heroSlides[currentHeroSlide].classList.add('active');
+
+            // sync dots
+            allDots.forEach(d => d.classList.remove('active'));
+            if (allDots[currentHeroSlide]) allDots[currentHeroSlide].classList.add('active');
         }
 
         if (heroPrevBtn && heroNextBtn) {
@@ -364,6 +386,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 showHeroSlide(currentHeroSlide + 1);
             });
         }
+
+        // Mobile swipe
+        let startX = 0;
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; }, { passive: true });
+        hero.addEventListener('touchend', e => {
+            const diff = startX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) showHeroSlide(currentHeroSlide + (diff > 0 ? 1 : -1));
+        }, { passive: true });
     }
 
     // Brochure Download Popup Functionality
