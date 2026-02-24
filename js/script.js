@@ -640,4 +640,34 @@ document.addEventListener('DOMContentLoaded', () => {
             counterObserver.observe(counter);
         });
     }
+    // Testimonial Read More / Read Less Toggle
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach(card => {
+        const text = card.querySelector('.testimonial-text');
+        const btn = card.querySelector('.testimonial-read-more');
+        if (!text || !btn) return;
+
+        // Check if text is clamped (content overflows)
+        function checkOverflow() {
+            // Temporarily remove expanded to measure clamped height
+            text.classList.remove('expanded');
+            if (text.scrollHeight > text.clientHeight + 1) {
+                btn.style.display = 'inline-block';
+            } else {
+                btn.style.display = 'none';
+                text.classList.remove('expanded');
+                btn.textContent = 'Read More';
+            }
+        }
+
+        checkOverflow();
+
+        btn.addEventListener('click', () => {
+            const isExpanded = text.classList.toggle('expanded');
+            btn.textContent = isExpanded ? 'Read Less' : 'Read More';
+        });
+
+        // Re-check on resize
+        window.addEventListener('resize', checkOverflow);
+    });
 });

@@ -743,7 +743,8 @@ input[type="number"] {
     line-height: 1.7;
     font-size: 0.95rem;
 }
-.main-keywords{
+
+.main-keywords {
     font-weight: bold;
 }
 
@@ -1248,9 +1249,44 @@ input[type="number"] {
     line-height: 1.8;
     color: var(--dark-gray);
     font-style: italic;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     /* for aligned name and title */
     flex-grow: 1;
+    /* Read More: clamp to 5 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.testimonial-text.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.testimonial-read-more {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    /* color: #0066cc; */
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-family);
+    transition: color 0.2s ease;
+    display: none;
+    text-align: end;
+    /* hidden by default, shown via JS only when needed */
+}
+
+.testimonial-read-more:hover {
+    color: var(--secondary-color);
+    color: #e6b800;
+    text-decoration: underline;
 }
 
 .testimonial-author {
