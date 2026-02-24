@@ -471,9 +471,13 @@ input[type="number"] {
         margin-bottom: 1rem;
     }
 
-    /* form disappear on mobile */
+    /* form show on mobile */
     .hero-form-container {
-        display: none;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+        margin-bottom: 20px;
     }
 
     .hero-nav {
@@ -618,7 +622,7 @@ input[type="number"] {
     width: 100%;
     overflow: hidden;
     position: relative;
-}   
+}
 
 .logo-track {
     display: grid;
@@ -1212,6 +1216,7 @@ input[type="number"] {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
+    align-items: start;
 }
 
 .testimonial-card {
@@ -1224,7 +1229,6 @@ input[type="number"] {
     /* for aligned name and title */
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .testimonial-card:hover {
@@ -1252,10 +1256,10 @@ input[type="number"] {
     margin-bottom: var(--spacing-sm);
     /* for aligned name and title */
     flex-grow: 1;
-    /* Read More: clamp to 5 lines */
+    /* Read More: clamp to 4 lines */
     display: -webkit-box;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1419,8 +1423,8 @@ footer {
 }
 
 .social-links svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     color: var(--white);
 }
 
