@@ -237,20 +237,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     <form id="hero-enquiry-form" class="hero-form">
                         <h3>Acoustic guidance for ceilings and wall solutions.</h3>
                         <div class="form-group">
-                            <label for="hero-name">Name</label>
-                            <input type="text" id="hero-name" name="name" required>
+                            <input type="text" id="hero-name" name="name" placeholder="Name *" required>
                         </div>
                         <div class="form-group">
-                            <label for="hero-company">Company</label>
-                            <input type="text" id="hero-company" name="company" required>
+                            <input type="text" id="hero-company" name="company" placeholder="Company *" required>
                         </div>
                         <div class="form-group">
-                            <label for="hero-email">Email Id</label>
-                            <input type="email" id="hero-email" name="email" required>
+                            <input type="email" id="hero-email" name="email" placeholder="Email Id *" required>
                         </div>
                         <div class="form-group">
-                            <label for="hero-mobile">Mobile Number</label>
-                            <input type="number" id="hero-mobile" name="mobile" required>
+                            <input type="number" id="hero-mobile" name="mobile" placeholder="Mobile Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="hero-location" name="location" placeholder="Location *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="hero-requirement" name="requirement" placeholder="Requirement *" required>
                         </div>
                         <button type="submit" class="btn warning-btn" style="width: 100%;">Submit</button>
                     </form>

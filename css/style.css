@@ -267,7 +267,6 @@ header .container {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255);
-    /* border: 1px solid rgba(255, 255, 255, 0.25); */
     padding: 20px;
     border-radius: 12px;
     width: 350px;
@@ -300,16 +299,6 @@ header .container {
 
 .hero-form .form-group {
     margin-bottom: 10px;
-}
-
-.hero-form label {
-    display: block;
-    font-size: 0.85rem;
-    margin-bottom: 6px;
-    color: var(--text-color);
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
 }
 
 .hero-form input {
@@ -349,7 +338,6 @@ input[type="number"] {
 
 .warning-btn {
     background-color: var(--primary-color);
-    /* Matches theme */
     color: var(--text-color);
     margin-top: 8px;
 }
